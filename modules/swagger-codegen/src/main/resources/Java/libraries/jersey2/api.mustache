@@ -108,7 +108,7 @@ public class {{classname}} {
     {{javaUtilPrefix}}Map<String, Object> {{localVariablePrefix}}localVarFormParams = new {{javaUtilPrefix}}HashMap<String, Object>();
 
     {{#queryParams}}
-    {{localVariablePrefix}}localVarQueryParams.addAll({{localVariablePrefix}}apiClient.parameterToPairs("{{#collectionFormat}}{{{collectionFormat}}}{{/collectionFormat}}", "{{baseName}}", {{paramName}}));
+    {{localVariablePrefix}}localVarQueryParams.addAll({{localVariablePrefix}}apiClient.parameterToPairs("{{#collectionFormat}}{{{collectionFormat}}}{{/collectionFormat}}", "{{baseName}}", {{#defaultValue}}{{paramName}} == null ? {{{.}}} : {{paramName}}{{/defaultValue}}{{^defaultValue}}{{paramName}}{{/defaultValue}}));
     {{/queryParams}}
 
     {{#headerParams}}if ({{paramName}} != null)
